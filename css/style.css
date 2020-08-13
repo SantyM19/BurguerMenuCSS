@@ -1,0 +1,129 @@
+/*Variables*/
+:root {
+  --color: #0000FF;
+  --hover:linear-gradient(225deg, #0000FF 0%, cyan 100%);
+}
+
+body{
+  width: 100%;
+  margin: 0px;
+  display: block;
+  position: relative;
+}
+
+/*nav*/
+.menu {
+    font-family: 'IBM Plex Sans', sans-serif;
+    display: block;
+    position: sticky;
+    top: 0;
+    background-color: white;
+    width: 100%;
+  }
+  
+  .menu input[type="checkbox"], .menu .fa-bars, .menu .fa-times {
+    position: absolute;  
+    margin: 0;
+    padding: 0;
+    right: 4%;
+    top: 5%;
+    width: 30px;
+    height: 30px;  
+  }
+  
+  .head{ 
+    display: block;
+    padding: 1% 4%;
+  }
+  
+  .logo{
+    width: 30px;
+    height: 30px;
+  }
+  
+  /*menu amburguesa*/
+  .menu .fa-bars, .menu .fa-times {
+    font-size: 30px;
+    pointer-events: none;
+  }
+   
+  .menu input[type="checkbox"] {
+    opacity: 0; 
+  }   
+  .menu nav {
+    display: none;
+  }
+   
+  .menu input:checked ~ nav {
+    display: block;
+  }
+   
+  .menu input:checked ~ .fa-bars {
+    display: none;
+  }
+   
+  .menu input:not(:checked) ~ .fa-times {
+    display: none;
+  }
+  /*end burguermenu*/
+  .item{
+    width: 100%;
+    background-color: var(--color);
+  }
+  
+  .a {
+    display: block;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    padding:1% 0%;
+  }
+  
+  .a:hover {
+    color:#00F3BB;
+    text-decoration: line-through;
+  }
+  
+  .a:active {
+    color:gray;
+    text-decoration: line-through;
+  }
+  
+
+  @media (min-width: 901px) {
+  
+    .menu {
+      width: 100%;
+      display: block;
+    }
+    .head{
+      width: 45%;
+      padding-left: 5%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  
+    .menu input:checked ~ nav {
+      display: inline-block;
+    }
+  
+    input{
+      display: none;
+    }
+    .menu .fa-bars, .menu .fa-times {
+      display: none;
+    }
+    .menu nav{
+      display: inline-block;
+      width: 45%;
+    }
+    .item{
+      width: 24%;
+      display: inline-block;
+      vertical-align: middle;
+      background-color: white;
+    }  
+    .a{
+      background-color: white;
+    }
+}
