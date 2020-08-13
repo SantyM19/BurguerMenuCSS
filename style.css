@@ -1,0 +1,44 @@
+
+.menui {
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.5s ease;
+    height: 30px;
+}
+.menui:hover .bar {
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.3);
+}
+.menui .bar {
+    width: 30px;
+    height: 6px;
+    background: black;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    transition: 0.4s ease;
+}
+.menui .bar:not(:first-child) {
+    margin-top: 3px;
+}
+#hi {
+    display: none;
+}
+#hi:checked + .menui {
+    transform: translate(-50%, -50%) rotatey(180deg);
+}
+#hi:checked + .menui .bar {
+    transform: rotatey(180deg) rotatex(360deg);
+}
+#hi:checked + .menui .bar:first-child {
+    transform: rotate(-45deg);
+    margin-top: 10px;
+}
+#hi:checked + .menui .bar:nth-child(2) {
+    opacity: 0;
+}
+#hi:checked + .menui .bar:nth-child(3) {
+    margin-top: -15px;
+    transform: rotate(45deg);
+}
