@@ -1,7 +1,6 @@
 /*Variables*/
 :root {
-  --color: #0000FF;
-  --hover:linear-gradient(225deg, #0000FF 0%, cyan 100%);
+  --color: #ffcbfa;
 }
 
 body{
@@ -21,18 +20,8 @@ body{
     width: 100%;
   }
   
-  .menu input[type="checkbox"], .menu .fa-bars, .menu .fa-times {
-    position: absolute;  
-    margin: 0;
-    padding: 0;
-    right: 4%;
-    top: 5%;
-    width: 30px;
-    height: 30px;  
-  }
-  
   .head{ 
-    display: block;
+    display: inline-block;
     padding: 1% 4%;
   }
   
@@ -40,31 +29,65 @@ body{
     width: 30px;
     height: 30px;
   }
+
+  .menui {
+    float: right;
+    position: relative;
+    right: 4%;
+    top: 22px;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    transition: 0.5s ease;
+    height: 30px;
+  }
+  .menui:hover .bar {
+    box-shadow: 1px 1px 7px 1px rgba(0, 0, 0, 0.3);
+  }
+  .menui .bar {
+    width: 30px;
+    height: 6px;
+    background: black;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+    transition: 0.4s ease;
+  }
+  .menui .bar:not(:first-child) {
+    margin-top: 3px;
+  }
   
   /*menu amburguesa*/
-  .menu .fa-bars, .menu .fa-times {
-    font-size: 30px;
-    pointer-events: none;
+
+  #hi {
+    display: none;
   }
-   
-  .menu input[type="checkbox"] {
-    opacity: 0; 
-  }   
+
   .menu nav {
     display: none;
   }
-   
+
+  #hi:checked + .menui {
+    transform: translate(-50%, -50%) rotatey(180deg);
+  }
+  #hi:checked + .menui .bar {
+    transform: rotatey(180deg) rotatex(360deg);
+  }
+  #hi:checked + .menui .bar:first-child {
+    transform: rotate(-45deg);
+    margin-top: 10px;
+  }
+  #hi:checked + .menui .bar:nth-child(2) {
+    opacity: 0;
+  }
+  #hi:checked + .menui .bar:nth-child(3) {
+    margin-top: -15px;
+    transform: rotate(45deg);
+  }
+
   .menu input:checked ~ nav {
     display: block;
   }
    
-  .menu input:checked ~ .fa-bars {
-    display: none;
-  }
-   
-  .menu input:not(:checked) ~ .fa-times {
-    display: none;
-  }
+ 
   /*end burguermenu*/
   .item{
     width: 100%;
@@ -80,7 +103,8 @@ body{
   }
   
   .a:hover {
-    color:#00F3BB;
+    color:#9b98f2;
+    background-color: #f9b5fa;
     text-decoration: line-through;
   }
   
@@ -110,7 +134,7 @@ body{
     input{
       display: none;
     }
-    .menu .fa-bars, .menu .fa-times {
+    .bar {
       display: none;
     }
     .menu nav{
@@ -124,6 +148,10 @@ body{
       background-color: white;
     }  
     .a{
+      background-color: white;
+    }
+
+    .a:hover {
       background-color: white;
     }
 }
